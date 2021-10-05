@@ -2,10 +2,31 @@ import React, {useEffect} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAction'
-
-import Header from './components/header/Header'
+import Header from './components/UserManagement/header/Header'
 import Body from './components/body/Body'
 import axios from 'axios';
+
+//Dasun
+import AddProduct from './components/Vendor/AddProduct';
+import Footer from './components/Vendor/Footer';
+import Header from './components/Vendor/Header';
+import AllProducts from './components/Vendor/allProducts';
+import updateProduct from './components/Vendor/updateProduct';
+import {makeStyles} from '@material-ui/core/styles';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function App() {
   const dispatch = useDispatch()
@@ -37,14 +58,77 @@ function App() {
   },[token, dispatch])
 
 
+//Dasun
+const useStyles = makeStyles({
+
+  root : {
+    minHeight: '600px',
+    marginBottom: '100px',
+    clear: 'both',
+  },
+
+  
+})
+
+
+
+
+
+
+
+
+
+
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Body />
+        <div className={classes.root}>
+    <br/> <br/><br/>
+    <Route path="/" exact component={AllProducts}/>
+    <Route path ="/add" exact component={AddProduct} />
+    <Route path="/update/:id" exact component={updateProduct}/>
+    
+    </div>
+
+     <Footer/>
       </div>
     </Router>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+DASUN APP.JS Return Structure
+
+<Router>
+    <div className="App">
+     
+     <Header/>
+     <div className={classes.root}>
+    <br/> <br/><br/>
+    <Route path="/" exact component={AllProducts}/>
+    <Route path ="/add" exact component={AddProduct} />
+    <Route path="/update/:id" exact component={updateProduct}/>
+    
+    </div>
+
+     <Footer/>
+
+    </div>
+    </Router>*/
