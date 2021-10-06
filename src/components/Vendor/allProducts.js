@@ -4,10 +4,10 @@ import AddStudent from "./AddProduct";
 import Button from '@material-ui/core/Button';
 import axios from "axios";
 import {Link} from "react-router-dom";
-import { ObjectId } from "bson";
+//import { ObjectId } from "bson";
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import jsPDF from "jspdf";
-import logo2 from "../images/logo2.png"
+import logo2 from "../../images/logo3.png"
 
 function AllProducts() {
 
@@ -69,21 +69,21 @@ function AllProducts() {
 const [searchTerm, setsearchTerm] = useState("");
 
 
-//Generate PDF 
+// //Generate PDF 
 
-pdfGenerate=()=>{
+// pdfGenerate=()=>{
 
-    var doc = new jsPDF("l","px",'a4','false')
-    doc.addImage(logo2,'png',40,40,50,50)
-    doc.text(100, 20, 'Grocery 24x7', 'center');
-    doc.text(100,20,'Summary Report of Stocks','center')
+//     var doc = new jsPDF("l","px",'a4','false')
+//     doc.addImage(logo2,'png',40,40,50,50)
+//     doc.text(100, 20, 'Grocery 24x7', 'center');
+//     doc.text(100,20,'Summary Report of Stocks','center')
     
-    var today = new Date();
-    var newdat = "Date Printed : "+ today;
-    doc.text(107,68,newdat);
+//     var today = new Date();
+//     var newdat = "Date Printed : "+ today;
+//     doc.text(107,68,newdat);
 
 
-}
+// }
 
 
 
@@ -93,7 +93,7 @@ pdfGenerate=()=>{
                 <h1> All Products</h1>
 
 
-<Button  onClick={pdfGenerate}>Create Summary Report </Button>
+{/*<Button  onClick={pdfGenerate}>Create Summary Report </Button>*/}
 
 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100px'}}>
         <input type = "text"  placeholder = "search for a product..." className = "form-control" style={{margintop:50, marginbottom:20, width:"40%" }}

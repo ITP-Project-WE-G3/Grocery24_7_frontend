@@ -4,7 +4,10 @@ import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {isLength, isMatch} from '../../utils/validation/Validation'
 import {showSuccessMsg, showErrMsg} from '../../utils/notification/Notification'
-import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersAction'
+import {fetchAllUsers, dispatchGetAllUsers} from '../../../../redux/actions/usersAction'
+import jspdf from 'jspdf'
+import "jspdf-autotable"
+import img from '../../../../images/logo3.png';
 
 const initialState = {
     name: '',
@@ -128,7 +131,33 @@ function Profile() {
             setData({...data, err: err.response.data.msg , success: ''})
         }
     }
+    // genarate pdf
 
+    const generatePDF = tickets => {
+
+        const doc = new jspdf();
+        const tableColumn = ["ID", "Name", "Email"];
+        const tableRows = [];
+        const date = Date().split(" ");
+        const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+
+        tickets.map(ticket => {
+            const ticketData = [
+                ticket._id,
+                ticket.name,
+                ticket.email,
+    
+            ];
+            tableRows.push(ticketData);
+        })
+        doc.text("Grocery 24x7", 70, 8).setFontSize(13);
+        doc.text("User Detail Report", 14, 16).setFontSize(13);
+        doc.text(`Report Genarated Date - ${dateStr}`, 14, 23);
+        //right down width height
+        doc.addImage(img, 'JPEG', 170, 8, 25, 25);
+        doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY:35});
+        doc.save("User Details Report.pdf");
+    };
     return (
         <>
         <div>
@@ -179,7 +208,14 @@ function Profile() {
 
             <div className="col-right">
                 <h2>{isAdmin ? "Users" : "My Orders"}</h2>
+                
+                <div class="buttonn">
+                    <button type="button" class="btn btn-secondary btn-sm" onClick={() => generatePDF(users)} >Generate Report</button> <br></br>
+                </div>
 
+                <br></br>
+
+                
                 <input type = "text" placeholder = "search..." className = "form-control" style={{margintop:50, marginbottom:20, width:"40%"}}
                     onChange = {(e) => {
                     setsearchTerm(e.target.value);

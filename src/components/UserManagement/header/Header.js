@@ -5,7 +5,7 @@ import axios from 'axios'
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
-import logo3 from '../../images/logo3.png';
+import logo3 from '../../../images/logo3.png';
 import SearchIcon from "@material-ui/icons/SearchOutlined"
 import AccountCircleIcon from "@material-ui/icons/AccountCircle"
 
@@ -79,12 +79,12 @@ function Header() {
                <Link to="/" class="nav-link">Home</Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link">Add Product</Link>
+                <Link to="/add" class="nav-link">Add Product</Link>
               </li>
               <li class="nav-item">
-                <Link to="/add" class="nav-link">Add Report</Link>
+                <Link to="/addReport" class="nav-link">Resolution Center</Link>
               </li>
-              
+           
             </ul>
             
           </div>
