@@ -22,7 +22,10 @@ import AddReport from './components/Resolution/AddReport';
 import AllReports from './components/Resolution/AllReports';
 import ResolutionCenter from './components/Resolution/ResolutionCenter';
 
-
+//Ishara
+import AddEmployee from './Components/AddEmployee';
+import AllEmployees from './Components/AllEmployees';
+import UpdateEmployee from './Components/UpdateEmployee';
 
 
 
@@ -96,6 +99,14 @@ const classes = useStyles();
             <Route path="/addReport" exact component = {ResolutionCenter} />
             <Route path="/addnew" exact component = {AddReport} />
             <Route path = "/view" exact component = {AllReports}/>
+
+            <Route path="/add" exact component={AddEmployee} />
+            <Route path="/" exact component={AllEmployees} />
+            <Route path="/Up" exact component={UpdateEmployee} />
+
+
+
+
             </div>
         <Footer/>
       </div>
