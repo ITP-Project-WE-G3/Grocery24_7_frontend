@@ -35,13 +35,13 @@ button{
 }
 
 /* ----------------- Header ------------------- */
-@import url("./components/header/header.css");
+@import url("./components/UserManagement/header/header.css");
 
 /* ----------------- Auth ------------------- */
-@import url("./components/body/auth/auth.css");
+@import url("./components/UserManagement/body/auth/auth.css");
 
 /* ----------------- Profile ------------------- */
-@import url("./components/body/profile/profile.css");
+@import url("./components/UserManagement/body/profile/profile.css");
 
 .App-link {
   color: #61dafb;

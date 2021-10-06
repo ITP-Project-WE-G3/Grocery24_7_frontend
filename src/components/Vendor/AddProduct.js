@@ -1,4 +1,4 @@
-import e from "cors";
+//import e from "cors";
 import React,{useState} from "react";
 import axios from "axios";
 import {storage} from "./firebase";

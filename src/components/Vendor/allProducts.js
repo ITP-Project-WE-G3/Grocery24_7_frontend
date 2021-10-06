@@ -4,10 +4,10 @@ import AddStudent from "./AddProduct";
 import Button from '@material-ui/core/Button';
 import axios from "axios";
 import {Link} from "react-router-dom";
-import { ObjectId } from "bson";
+//import { ObjectId } from "bson";
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import jsPDF from "jspdf";
-import logo2 from "../images/logo2.png"
+import logo2 from "../../images/logo3.png"
 
 function AllProducts() {
 
