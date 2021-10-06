@@ -156,7 +156,7 @@ function Profile() {
         //right down width height
         doc.addImage(img, 'JPEG', 170, 8, 25, 25);
         doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY:35});
-        doc.save("Order Details Report.pdf");
+        doc.save("User Details Report.pdf");
     };
     return (
         <>

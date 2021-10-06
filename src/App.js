@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAction'
 
@@ -92,7 +92,7 @@ const useStyles = makeStyles({
       <div className="App">
         <Header />
         <Body />
-          <div className={classes.root}>
+          {/*<div className={classes.root}>*/}
             <br/> <br/><br/>
             <Route path="/" exact component={AllProducts}/>
             <Route path ="/add" exact component={AddProduct} />
@@ -102,7 +102,7 @@ const useStyles = makeStyles({
             <Route path="/addReport" exact component = {ResolutionCenter} />
             <Route path="/addnew" exact component = {AddReport} />
             <Route path = "/view" exact component = {AllReports}/>
-          </div>
+            {/*</div>*/}
         <Footer/>
       </div>
     </Router>
