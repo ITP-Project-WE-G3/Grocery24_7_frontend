@@ -1,47 +1,39 @@
-import React, {useEffect} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
-import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAction'
+import './App.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Header from './components/header/Header'
-import Body from './components/body/Body'
-import axios from 'axios';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import AddcashonDelivery from './components/AddcashonDelivery';
+import PendingOrders from './components/PendingOrders';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles';
+import OrderDetails from "./components/OrderDetails";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
-  const dispatch = useDispatch()
-  const token = useSelector(state => state.token)
-  const auth = useSelector(state => state.auth)
+  const useStyles = makeStyles({
+    root: {
+      minHeight: '600px',
+      marginBottom: '100px',
+      clear: 'both',
+    },
+  });
 
-  useEffect(() => {
-    const firstLogin = localStorage.getItem('firstLogin')
-    if(firstLogin){
-      const getToken = async () => {
-        const res = await axios.post('/user/refresh_token', null)
-        dispatch({type: 'GET_TOKEN', payload: res.data.access_token})
-      }
-      getToken()
-    }
-  },[auth.isLogged, dispatch])
-
-  useEffect(() => {
-    if(token){
-      const getUser = () => {
-        dispatch(dispatchLogin())
-
-        return fetchUser(token).then(res => {
-          dispatch(dispatchGetUser(res))
-        })
-      }
-      getUser()
-    }
-  },[token, dispatch])
-
-
+  const classes = useStyles();
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Body />
+      <div className='App'>
+        <Header/>
+        <ToastContainer />
+        <div className={classes.root}>
+          <br/> <br/>
+          <br/>
+          <Route path='/add' exact component={AddcashonDelivery}/>
+          <Route path='/details/:id' component={OrderDetails}/>
+          <Route path='/' exact component={PendingOrders}/>
+        </div>
+        <Footer/>
       </div>
     </Router>
   );
