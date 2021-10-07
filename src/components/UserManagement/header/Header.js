@@ -82,6 +82,12 @@ function Header() {
                 <Link to="/add" class="nav-link">Add Product</Link>
               </li>
               <li class="nav-item">
+                <Link to="/i" class="nav-link">Items</Link>
+              </li>
+              <li class="nav-item">
+                <Link  class="nav-link" to="/o">My Orders</Link>
+              </li>
+              <li class="nav-item">
                 <Link to="/addReport" class="nav-link">Resolution Center</Link>
               </li>
            
@@ -97,7 +103,7 @@ function Header() {
                     <Button startIcon={<SearchIcon/>}className={classes.buttonStyle}  variant="contained" color="inherit" size="medium" type="submit">Search</Button>
                 </form>
                 <ul style={transForm}>
-                <li><Link to="/"><i className="fas fa-shopping-cart"></i> Cart</Link></li>
+                <li><Link to="/c"><i className="fas fa-shopping-cart"></i> Cart</Link></li>
                 {
                     isLogged
                     ? userLink()

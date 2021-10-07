@@ -22,7 +22,28 @@ import AddReport from './components/Resolution/AddReport';
 import AllReports from './components/Resolution/AllReports';
 import ResolutionCenter from './components/Resolution/ResolutionCenter';
 
+//Yasassi
+import AddRequest from './components/Order/AddRequest';
+import AllRequest from './components/Order/AllRequest';
+import UpdateRequest from './components/Order/UpdateRequest';
+import DeleteRequest from './components/Order/DeleteRequest';
 
+import AllOrder from './components/Order/AllOrder';
+import SelectedOrder from './components/Order/SingleOrder';
+import AddOrder from './components/Order/AddOrder';
+import UpdateOrder from './components/Order/UpdateOrder';
+import Search from './components/Order/search';
+
+//Hirantha
+import ItemSearch from './components/Cart/itemsearch';
+import ItemPage from './components/Cart/itempage';
+import SelectedItem from './components/Cart/selecteditem';
+import ViewCart from './components/Cart/viewcart';
+
+//Sandunika
+import UpdateUserInfo from './components/Payment/editinfo';
+import UserInfo from './components/Payment/userinfo';
+import UserInfoDisplay from './components/Payment/userinfoDisplay';
 
 
 
@@ -96,6 +117,25 @@ const classes = useStyles();
             <Route path="/addReport" exact component = {ResolutionCenter} />
             <Route path="/addnew" exact component = {AddReport} />
             <Route path = "/view" exact component = {AllReports}/>
+
+            <Route path="/radd" exact component={AddRequest}/>
+            <Route path="/oadd" exact component={AddOrder}/>
+            <Route path="/rdelete/:rid" exact component={DeleteRequest}/>
+            <Route path="/r" exact component={AllRequest}/>
+            <Route path="/o" exact component={AllOrder}/>
+            <Route path="/rupdate/:rid" exact component={UpdateRequest}/>
+            <Route path="/oupdate/:rid" exact component={UpdateOrder}/>
+            <Route path="/search" exact component={Search}/>
+            <Route path="/singleOrder" exact component={SelectedOrder}/>
+
+            <Route path="/checkout" exact component={UserInfo}/>
+            <Route path="/pay" exact component={UserInfoDisplay}/>
+            <Route path="/payupdate/:id" exact component={UpdateUserInfo}/>
+
+            <Route path="/selected" exact component={SelectedItem}/>
+            <Route path="/i" exact component={ItemPage}/>
+            <Route path="/c" exact component={ViewCart}/>
+            <Route path="/itemsearch" exact component={ItemSearch}/>
             </div>
         <Footer/>
       </div>
