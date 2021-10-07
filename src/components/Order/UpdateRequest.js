@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import { Button } from '@material-ui/core';
 //import { useHistory } from 'react-router';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 export default function UpdateRequest(){
 
@@ -40,7 +41,7 @@ export default function UpdateRequest(){
         }
         axios.put(`http://localhost:8070/request/rupdate/${_id}`,newRequest).then(()=>{
             alert(" Updated Successfully!");
-            window.location.replace('/r');
+           
         }).catch((err) =>{
             alert(err)
         })
@@ -85,6 +86,13 @@ export default function UpdateRequest(){
                 
                 
                 <Button variant="contained" color="secondary" type='submit' onClick={updateAPIData}>Update</Button>
+                
+                &nbsp;&nbsp;
+
+    <Link to="/r">
+<Button variant="contained" color="secondary" 
+                        >Back</Button>
+                        </Link>
                 <br/><br/>
             </form>
         </div>

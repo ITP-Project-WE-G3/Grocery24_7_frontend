@@ -43,7 +43,7 @@ export default function ItemPage() {
 
         useEffect(() => {
             function getItems() {
-                axios.get("http://localhost:8070/item/").then((res) => {
+                axios.get("http://localhost:8070/product/").then((res) => {
                     console.log(res.data);
                     setItems(res.data);
                 }).catch((err) => {

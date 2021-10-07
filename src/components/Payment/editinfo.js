@@ -87,10 +87,12 @@ export default function UpdateUserInfo() {
     <br></br>
 
     <Button variant="contained" color="secondary" type="submit"
-                        >Edit Info</Button>
+                        >Edit Info</Button>&nbsp;&nbsp;
 
-    
-
+    <Link to="/pay">
+<Button variant="contained" color="secondary" 
+                        >Back</Button>
+</Link>
   </form>
 </div>
     

@@ -122,8 +122,10 @@ export default function AllOrder(){
             <h3>Order Details</h3>
             <div class="buttonn">
 
-<button type="button" class="btn btn-secondary btn-sm" onClick={() => generatePDF(orders)} >Generate Report</button> <br></br>
-
+<button type="button" class="btn btn-secondary btn-sm" onClick={() => generatePDF(orders)} >Generate Report</button> 
+<Link to='/r' className={classes.navlink} >
+                            <Button variant="contained" color="secondary" style={{float:"right"}}>All Requests</Button>
+                        </Link>
 </div><br/>
             <p>{orders.map((orders) => {return(
                 <div>
