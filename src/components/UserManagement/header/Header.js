@@ -82,6 +82,12 @@ function Header() {
                 <Link to="/add" class="nav-link">Add Product</Link>
               </li>
               <li class="nav-item">
+                <Link to="/i" class="nav-link">Items</Link>
+              </li>
+              <li class="nav-item">
+                <Link  class="nav-link" to="/c">Cart</Link>
+              </li>
+              <li class="nav-item">
                 <Link to="/addReport" class="nav-link">Resolution Center</Link>
               </li>
            
