@@ -140,7 +140,7 @@ export default function UserInfo() {
                                                         <h3 className="panel-title display-td">Card Details</h3>
                                                         <div className="display-td">
                                                             <img className="img-responsive pull-right" 
-                                                            src="G:/ITP/online_grocery_shopping/src/images/visacard.png" alt="accept" height="50px" width="100px"/>
+                                                            src="G:/ITP/online_grocery_shopping/src/images/visacard.png" alt="visa" height="50px" width="100px"/>
                                                         </div>
                                                     </div>
                                                 </div>

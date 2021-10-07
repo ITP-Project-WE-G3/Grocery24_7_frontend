@@ -46,7 +46,7 @@ export default function UpdateUserInfo() {
         }
         axios.put(`http://localhost:8070/payment/payupdate/${_id}`,newPayment).then(()=>{
             alert(" Updated Successfully!");
-            //window.location.replace('/c');
+            
         }).catch((err) =>{
             alert(err)
         })
