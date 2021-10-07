@@ -58,13 +58,13 @@ export default function AddRequest(){
                     Order ID : {orderID}<br/><br/>
                  <div className="mb-3">
                     <label htmlFor="inputDescription" className="form-label">Reason</label>
-                    <textarea className="form-control" id="inputDescription" rows="3"
+                    <textarea className="form-control" id="inputDescription" rows="3" required
                     onChange={(e) => {setReason(e.target.value);}}/>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="inputDescription" className="form-label">Description</label>
-                    <textarea className="form-control" id="inputDescription" rows="3"
+                    <textarea className="form-control" id="inputDescription" rows="3" required
                     onChange={(e) => {setDesc(e.target.value);}}/>
                 </div>
     
