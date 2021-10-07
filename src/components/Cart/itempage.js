@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import {Card,CardMedia,CardContent,Typography} from '@material-ui/core'
 import { Button,CardActionArea, CardActions } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/SearchOutlined';
+
 
 export default function ItemPage() {
 
@@ -34,12 +34,9 @@ export default function ItemPage() {
     //receive part
         const [items, setItems] = useState([]);
         const [searchTerm, setsearchTerm] = useState("");
+  
 
-        const setDataSearch = () => {
-    
-            localStorage.setsearchTerm('isearch', searchTerm);
-    
-        }
+        
 
         useEffect(() => {
             function getItems() {
@@ -69,14 +66,43 @@ export default function ItemPage() {
                 <h1>Item Page</h1> 
 
                 {/*search*/}
-                <form  class="d-flex"  style={{width:"500px",paddingLeft:"10px"}}>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-                    onChange={(e) => {setsearchTerm(e.target.value);}} /> &nbsp;
-                    <Link to='/itemsearch' className={classes.navlink}>
-                    <Button startIcon={<SearchIcon/>}className={classes.buttonStyle}  variant="contained" color="black" 
-                    size="medium" type="submit" onClick={() => setDataSearch()}>Search</Button>
-                    </Link>
-                </form>
+                <input type = "text" placeholder = "search..." className = "form-control" style={{margintop:50, marginbottom:20, width:"40%"}}
+    onChange = {(e) => {
+        setsearchTerm(e.target.value);
+    }} />
+    
+   
+   {/*<table class="table table-bordered">
+        <table class="table table-hover" >
+                   
+                   <tbody>
+                       {
+                           items.filter(val=> {
+                               if(searchTerm == ''){
+                                   return val;
+                               }else if (
+                                   val.pname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   val.pDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   val.pPrice.toLowerCase().includes(searchTerm.toLowerCase()) 
+                               ){
+                                   return val;
+                               }
+                           }).map(function (f) {
+                               return <tr>
+                                   
+
+                                   <td >{f.pname}</td>
+                                   <td >{f.pDesc} </td>
+                                   <td >{f.pPrice} </td>
+                                   <td >{f.stockUnits} </td>
+
+                               </tr>
+
+                           })
+                       }
+                   </tbody>
+                   </table>
+                    </table>*/}
                 <br/>
 
                 {/*iterm card*/}

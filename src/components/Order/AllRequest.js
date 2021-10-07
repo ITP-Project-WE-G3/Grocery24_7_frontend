@@ -33,7 +33,7 @@ export default function AllRequest(){
       const classes = useStyles();
     
     const [requests, setRequests] = useState([]);
-    
+    const [searchTerm, setsearchTerm] = useState("");
   
     //const [date, setDate] = useState([]);
 
@@ -101,44 +101,65 @@ export default function AllRequest(){
     return(
         <div className="container">
            
-            <p>{requests.map((requests) => {return(
-                <div>
-                    
-                   
-                    <p><br/>
-                    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+           <input type = "text" placeholder = "search..." className = "form-control" style={{margintop:50, marginbottom:20, width:"40%"}}
+    onChange = {(e) => {
+        setsearchTerm(e.target.value);
+    }} />
+    
+
+                   <p>
+                       {
+                           requests.filter(val=> {
+                               if(searchTerm == ''){
+                                   return val;
+                               }else if (
+                                   val.orderID.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   val.reason.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   val.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   val.desc.toLowerCase().includes(searchTerm.toLowerCase()) 
+                               ){
+                                   return val;
+                               }
+                           }).map(function (f) {
+                               return <div>
+                                   
+
+                                   <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <ListItem>
-        <ListItemText primary="Request ID:" secondary={requests._id}  />
+        <ListItemText primary="Request ID:" secondary={f._id}  />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Ordered Date:" secondary={requests.orderID}  />
+        <ListItemText primary="Ordere ID:" secondary={f.orderID}  />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Reason" secondary={requests.reason}  />
+        <ListItemText primary="Reason" secondary={f.reason}  />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Description:" secondary={requests.desc}  />
+        <ListItemText primary="Description:" secondary={f.desc}  />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Requested Date:" secondary={requests.date}  />
+        <ListItemText primary="Requested Date:" secondary={f.date}  />
       </ListItem>
       
 
     </List>
-                        
-
-                        <Link to='/rupdate/:rid' className={classes.navlink}>
+   
+    <Link to='/rupdate/:rid' className={classes.navlink}>
                             <Button variant="contained" onClick={() => setData(requests)}>Update</Button>
                         </Link> &nbsp;
                         <Link to='/rdelete/:id' className={classes.navlink}>
                             <Button startIcon={<DeleteOutlinedIcon/>} className={classes.buttonStyle}
                              variant="contained" color="secondary" onClick={() => setData(requests)}>Delete</Button>
                         </Link>
-                    </p>
-                </div>
-                );
-                })}
-            </p>
+                               </div>
+
+                           })
+                       }
+                   </p>
+                   
+
+
+           
             
         </div>
     )
